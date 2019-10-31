@@ -7,6 +7,7 @@ import 'chapter5/ScaffoldStudy.dart';
 import 'chapter6/ScrollStudy.dart';
 import 'chapter7/Funtions.dart';
 import 'chapter7/DataShare.dart';
+import 'chapter7/YibuUI.dart';
 void main(){
   runApp(MyApp());
 }
@@ -154,6 +155,18 @@ class HomeWidget extends StatelessWidget{
               }));
             },
               child: Text('数据共享'),),
+            RaisedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return TestFutureBuilder();
+              }));
+            },
+              child: Text('Future异步更新'),),
+            RaisedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return StreamTestRoute();
+              }));
+            },
+              child: Text('Stream异步更新'),),
           ],
         ),
       ),
