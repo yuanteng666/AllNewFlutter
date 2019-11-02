@@ -8,6 +8,7 @@ import 'chapter6/ScrollStudy.dart';
 import 'chapter7/Funtions.dart';
 import 'chapter7/DataShare.dart';
 import 'chapter7/YibuUI.dart';
+import 'chapter9/AnimationStudy.dart';
 void main(){
   runApp(MyApp());
 }
@@ -167,6 +168,12 @@ class HomeWidget extends StatelessWidget{
               }));
             },
               child: Text('Stream异步更新'),),
+            RaisedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return AnimationStudyRoute();
+              }));
+            },
+              child: Text('动画'),),
           ],
         ),
       ),
