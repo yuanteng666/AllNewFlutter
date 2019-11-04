@@ -9,6 +9,7 @@ import 'chapter7/Funtions.dart';
 import 'chapter7/DataShare.dart';
 import 'chapter7/YibuUI.dart';
 import 'chapter9/AnimationStudy.dart';
+import 'chapter9/HeroAnim.dart';
 void main(){
   runApp(MyApp());
 }
@@ -174,6 +175,25 @@ class HomeWidget extends StatelessWidget{
               }));
             },
               child: Text('动画'),),
+            RaisedButton(onPressed: (){
+              Navigator.push(context, PageRouteBuilder(
+                transitionDuration: Duration(milliseconds: 1000),
+                pageBuilder: (BuildContext context,Animation animation,Animation secondeAnimation){
+                  return new FadeTransition(opacity: animation,
+                  child: AnimationStudyRoute(),);
+                }
+              ));
+            },
+            child: Text('自定义路由动画'),),
+            RaisedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context){
+                  return HeroAnimationRouteA();
+                }
+              ));
+            },
+            child: Text('hero动画'),),
+            HeroAnimationRouteA()
           ],
         ),
       ),
