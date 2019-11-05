@@ -10,6 +10,9 @@ import 'chapter7/DataShare.dart';
 import 'chapter7/YibuUI.dart';
 import 'chapter9/AnimationStudy.dart';
 import 'chapter9/HeroAnim.dart';
+import 'chapter9/StaggerAnimationStudy.dart';
+import 'chapter9/AnimationSwitchStudy.dart';
+import 'chapter10/JianbianButton.dart';
 void main(){
   runApp(MyApp());
 }
@@ -106,98 +109,120 @@ class HomeWidget extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      body: new Center(
-        child: new Column(
-          children: <Widget>[
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return UseImageWidget();
-              }));
-            },
-              child: Text('Image'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return UseProgressWiget();
-              }));
-            },
-              child: Text('进度指示器'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return ScaffoldRoute();
-              }));
-            },
-              child: Text('Scaffold学习'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return MYScrollActivity(type: 7,);
-              }));
-            },
-              child: Text('ScrollView'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return CustomScrollViewRoute();
-              }));
-            },
-              child: Text('CustomScrollView'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return ScrollContrlTestRoute();
-              }));
-            },
-              child: Text('ScrollController'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return TestWill();
-              }));
-            },
-              child: Text('防止误点击'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return TestShareRoute();
-              }));
-            },
-              child: Text('数据共享'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return TestFutureBuilder();
-              }));
-            },
-              child: Text('Future异步更新'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return StreamTestRoute();
-              }));
-            },
-              child: Text('Stream异步更新'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return AnimationStudyRoute();
-              }));
-            },
-              child: Text('动画'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, PageRouteBuilder(
-                transitionDuration: Duration(milliseconds: 1000),
-                pageBuilder: (BuildContext context,Animation animation,Animation secondeAnimation){
-                  return new FadeTransition(opacity: animation,
-                  child: AnimationStudyRoute(),);
-                }
-              ));
-            },
-            child: Text('自定义路由动画'),),
-            RaisedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context){
-                  return HeroAnimationRouteA();
-                }
-              ));
-            },
-            child: Text('hero动画'),),
-            HeroAnimationRouteA()
-          ],
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: new Center(
+            child: new Column(
+              children: <Widget>[
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return UseImageWidget();
+                  }));
+                },
+                  child: Text('Image'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return UseProgressWiget();
+                  }));
+                },
+                  child: Text('进度指示器'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ScaffoldRoute();
+                  }));
+                },
+                  child: Text('Scaffold学习'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return MYScrollActivity(type: 7,);
+                  }));
+                },
+                  child: Text('ScrollView'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return CustomScrollViewRoute();
+                  }));
+                },
+                  child: Text('CustomScrollView'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ScrollContrlTestRoute();
+                  }));
+                },
+                  child: Text('ScrollController'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return TestWill();
+                  }));
+                },
+                  child: Text('防止误点击'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return TestShareRoute();
+                  }));
+                },
+                  child: Text('数据共享'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return TestFutureBuilder();
+                  }));
+                },
+                  child: Text('Future异步更新'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return StreamTestRoute();
+                  }));
+                },
+                  child: Text('Stream异步更新'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return AnimationStudyRoute();
+                  }));
+                },
+                  child: Text('动画'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, PageRouteBuilder(
+                      transitionDuration: Duration(milliseconds: 1000),
+                      pageBuilder: (BuildContext context,Animation animation,Animation secondeAnimation){
+                        return new FadeTransition(opacity: animation,
+                          child: AnimationStudyRoute(),);
+                      }
+                  ));
+                },
+                  child: Text('自定义路由动画'),),
+                RaisedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context){
+                        return HeroAnimationRouteA();
+                      }
+                  ));
+                },
+                  child: Text('hero动画'),),
+                HeroAnimationRouteA(),
+                StaggerRoute(),
+                AnimatedSwitcherCounterRoute(),
+                GradientButton(
+                  height: 50.0,
+                  colors: [Colors.red,Colors.lightBlue[300], Colors.blueAccent],
+                  child: Text("Submit"),
+                  onTap: onTap,
+                  radius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                GradientButton(
+                  height: 50.0,
+                  width: 100.0,
+                  colors: [Colors.red,Colors.lightBlue[300], Colors.blueAccent],
+                  child: Text("Submit"),
+                  onTap: onTap,
+                )
+              ],
+            ),
+          ),
         ),
-      ),
+      )
     );
   }
-
+  onTap() {
+    print("button click");
+  }
 }
